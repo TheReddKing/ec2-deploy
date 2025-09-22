@@ -1,0 +1,2 @@
+# Things I did to setup pm2
+pm2 start /var/www/subway/src/main.js

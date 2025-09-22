@@ -7,6 +7,8 @@ set -e  # Exit on any error
 
 # Configuration
 REPO_DIR="/home/webdev/subway"
+WEB_ROOT="/var/www/subway"
+BUILD_DIR="$REPO_DIR/build"
 LOG_FILE="/home/webdev/deploy_subway.log"
 
 # Logging function
@@ -18,8 +20,6 @@ log "Starting subway deployment..."
 
 # Navigate to repository
 cd "$REPO_DIR"
-
-nvm use 24
 
 # Pull latest changes
 log "Pulling latest changes from GitHub..."
@@ -33,6 +33,9 @@ yarn
 # Build the application
 log "Building application..."
 yarn run build
+
+log "Deploying new build..."
+cp -r "$BUILD_DIR"/* "$WEB_ROOT/"
 
 # Restart PM2 process
 log "Restarting PM2 process..."
