@@ -8,7 +8,7 @@ set -e  # Exit on any error
 # Configuration
 REPO_DIR="/home/webdev/home"
 WEB_ROOT="/var/www/home"
-BUILD_DIR="$REPO_DIR/build"
+BUILD_DIR="$REPO_DIR/dist"
 LOG_FILE="/home/webdev/deploy_homepage.log"
 
 # Logging function
