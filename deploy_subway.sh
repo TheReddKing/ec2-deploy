@@ -37,6 +37,10 @@ yarn run build
 log "Deploying new build..."
 cp -r "$BUILD_DIR"/* "$WEB_ROOT/"
 
+if [ ! -L "$WEB_ROOT/node_modules" ]; then
+    ln -s "$REPO_DIR/node_modules" $WEB_ROOT
+fi
+
 # Restart PM2 process
 log "Restarting PM2 process..."
 pm2 restart subway
